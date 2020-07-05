@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using ProAgil.Repository;
+using AutoMapper;
 
 namespace ProAgil.WebAPI
 {
@@ -31,6 +32,7 @@ namespace ProAgil.WebAPI
                 x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
             services.AddScoped<IProAgilRepository, ProAgilRepository>(); 
+            services.AddAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
         }
