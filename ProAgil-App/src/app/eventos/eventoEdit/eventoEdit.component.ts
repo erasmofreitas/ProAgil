@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventoService } from 'src/app/_services/evento.service';
-import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, UntypedFormArray } from '@angular/forms';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ToastrService } from 'ngx-toastr';
 import { Evento } from 'src/app/_models/Evento';
@@ -16,23 +16,23 @@ export class EventoEditComponent implements OnInit {
   titulo = 'Editar Evento';
   evento: Evento = new Evento();
   imagemURL = 'assets/img/uploadImage.jpg';
-  registerForm: FormGroup;
+  registerForm: UntypedFormGroup;
   file: File;
   fileNameToUpdate: string;
   dataAtual = '';
 
-  get lotes(): FormArray{
-    return <FormArray>this.registerForm.get('lotes');
+  get lotes(): UntypedFormArray{
+    return <UntypedFormArray>this.registerForm.get('lotes');
   }
 
-  get redesSociais(): FormArray{
-    return <FormArray>this.registerForm.get('redesSociais');
+  get redesSociais(): UntypedFormArray{
+    return <UntypedFormArray>this.registerForm.get('redesSociais');
   }
 
   constructor(
     private eventoService: EventoService
     , private router: ActivatedRoute
-    , private fb: FormBuilder
+    , private fb: UntypedFormBuilder
     , private localeService: BsLocaleService
     , private toastr: ToastrService
     ) {
@@ -80,7 +80,7 @@ export class EventoEditComponent implements OnInit {
       });
     }
 
-    criaLote(lote: any): FormGroup {
+    criaLote(lote: any): UntypedFormGroup {
       return this.fb.group({
         id: [lote.id],
         nome: [lote.nome, Validators.required],
@@ -91,7 +91,7 @@ export class EventoEditComponent implements OnInit {
       });
     }
 
-    criaRedeSocial(redeSocial: any): FormGroup {
+    criaRedeSocial(redeSocial: any): UntypedFormGroup {
       return this.fb.group({
         id: [redeSocial.id],
         nome: [redeSocial.nome, Validators.required],

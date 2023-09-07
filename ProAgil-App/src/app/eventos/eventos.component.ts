@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { EventoService } from '../_services/evento.service';
 import { Evento } from '../_models/Evento';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
@@ -28,7 +28,7 @@ export class EventosComponent implements OnInit {
   imagemLargura = 50;
   imagemMargem = 2;
   mostrarImagem = false;
-  registerForm: FormGroup;
+  registerForm: UntypedFormGroup;
   bodyDeletarEvento = '';
   
   file: File;
@@ -41,7 +41,7 @@ export class EventosComponent implements OnInit {
   constructor(
     private eventoService: EventoService
     , private modalService: BsModalService
-    , private fb: FormBuilder
+    , private fb: UntypedFormBuilder
     , private localeService: BsLocaleService
     , private toastr: ToastrService
     ) { 
