@@ -8,7 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
-import { NgxCurrencyModule } from 'ngx-currency';
+import { NgxCurrencyDirective } from 'ngx-currency';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { ToastrModule } from 'ngx-toastr';
@@ -56,7 +56,7 @@ import { CommonModule } from '@angular/common';
       TabsModule.forRoot(),
       NgxMaskDirective,
       NgxMaskPipe,
-      NgxCurrencyModule,
+      NgxCurrencyDirective,
       BrowserAnimationsModule,
       ToastrModule.forRoot({
          timeOut: 3000,
