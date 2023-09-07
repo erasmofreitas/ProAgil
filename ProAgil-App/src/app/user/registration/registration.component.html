@@ -21,7 +21,7 @@
       <div class="form-group">
         <label for="">Email:</label>
         <input class="form-control" type="text" formControlName="email"
-          [ngClass]="{ 'is-invalid': registerForm.get('email').errors && 
+          [ngClass]="{ 'is-invalid': registerForm.get('email').errors &&
                                      registerForm.get('email').touched}"
           placeholder="Insira o Nome Completo"/>
         <div *ngIf="registerForm.get('email').hasError('required') &&
@@ -32,7 +32,7 @@
         <div *ngIf="registerForm.get('email').hasError('email')
         && registerForm.get('email').touched" class="invalid-feedback">
         Deve ser um e-mail válido.
-        </div>        
+        </div>
       </div>
       <div class="form-group">
         <label for="">Usuario:</label>
@@ -50,7 +50,7 @@
         <div class="form-group">
           <label for="">Senha:</label>
           <input class="form-control" type="password" formControlName="password"
-            [ngClass]="{ 'is-invalid': registerForm.get('passwords.password').errors &&
+            [ngClass]="{'is-invalid': registerForm.get('passwords.password').errors &&
                                        registerForm.get('passwords.password').touched}"
             placeholder="Digite uma Senha" />
             <div *ngIf="registerForm.get('passwords.password').hasError('minlength') &&
@@ -67,17 +67,17 @@
         <div class="form-group">
           <label for="">Confirmar Senha:</label>
           <input class="form-control" type="password" formControlName="confirmPassword"
-            [ngClass]="{ 'is-invalid': registerForm.get('passwords.confirmPassword').errors 
-                         && registerForm.get('passwords.confirmPassword').touched 
-                         ||registerForm.get('passwords.confirmPassword').hasError('mismatch') 
-                         && registerForm.get('passwords.confirmPassword').touched }"
+            [ngClass]="{'is-invalid': registerForm.get('passwords.confirmPassword').errors
+                         && registerForm.get('passwords.confirmPassword').touched
+                         ||registerForm.get('passwords.confirmPassword').hasError('mismatch')
+                         && registerForm.get('passwords.confirmPassword').touched}"
             placeholder="Confirme a Senha" />
           <div *ngIf="registerForm.get('passwords.confirmPassword').hasError('required') &&
                       registerForm.get('passwords.confirmPassword').touched"
             class="invalid-feedback">
             Confirme a Senha
           </div>
-          <div *ngIf="registerForm.get('passwords.confirmPassword').hasError('mismatch') 
+          <div *ngIf="registerForm.get('passwords.confirmPassword').hasError('mismatch')
                       && registerForm.get('passwords.confirmPassword').touched"
             class="invalid-feedback">
             Confirmação não confere

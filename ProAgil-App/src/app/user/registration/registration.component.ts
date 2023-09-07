@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/_models/user';
 import { AuthService } from 'src/app/_services/auth.service';
@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
 
-  registerForm: UntypedFormGroup;
+  public registerForm!: FormGroup;
   user: User;
   constructor(private authService: AuthService,
-              public fb: UntypedFormBuilder
+              public fb: FormBuilder
               , public router: Router
               , private toastr: ToastrService) {
 
@@ -37,7 +37,7 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  compararSenhas(fb: UntypedFormGroup) {
+  compararSenhas(fb: FormGroup) {
     const confirmSenhaCtrl = fb.get('confirmPassword');
     if (confirmSenhaCtrl.errors === null || 'mismatch' in confirmSenhaCtrl.errors) {
       if (fb.get('password').value !== confirmSenhaCtrl.value) {

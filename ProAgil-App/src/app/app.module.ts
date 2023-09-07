@@ -7,7 +7,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-import { NgxMaskModule } from 'ngx-mask';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { NgxCurrencyModule } from 'ngx-currency';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +29,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { AuthInterceptor } from './auth/auth.interceptor';
 
 import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
    declarations: [
@@ -47,12 +48,14 @@ import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
    ],
    imports: [
       BrowserModule,
+      AppRoutingModule,
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
       TooltipModule.forRoot(),
       ModalModule.forRoot(),
       TabsModule.forRoot(),
-      NgxMaskModule.forRoot(),
+      NgxMaskDirective,
+      NgxMaskPipe,
       NgxCurrencyModule,
       BrowserAnimationsModule,
       ToastrModule.forRoot({
@@ -60,10 +63,10 @@ import { DateTimeFormatPipePipe } from './_helps/DateTimeFormatPipe.pipe';
          preventDuplicates: true,
          progressBar: true
       }),
-      AppRoutingModule,
       HttpClientModule,
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      CommonModule,
    ],
    providers: [
       EventoService,
