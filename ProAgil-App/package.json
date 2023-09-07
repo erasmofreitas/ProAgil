@@ -24,7 +24,7 @@
     "bootstrap": "^4.5.0",
     "ngx-bootstrap": "^5.6.1",
     "ngx-currency": "^2.3.3",
-    "ngx-mask": "^9.1.2",
+    "ngx-mask": "^16.3.1",
     "ngx-toastr": "^17.0.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
